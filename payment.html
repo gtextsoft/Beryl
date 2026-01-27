@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment | Beryl Group Estate</title>
+    <meta name="description"
+        content="Complete your property purchase payment. Secure payment process with multiple options available.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .payment-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .payment-info-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .payment-info-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .estate-summary {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .estate-summary h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .estate-summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .estate-summary-item:last-child {
+            border-bottom: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            padding-top: 15px;
+        }
+
+        .account-details {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .account-details h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .account-image {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            display: block;
+        }
+
+        .form-container {
+            margin-top: 30px;
+        }
+
+        .form-container h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-iframe {
+            width: 100%;
+            min-height: 800px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .payment-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .payment-step {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            margin: 5px;
+        }
+
+        .payment-step.active {
+            background: var(--secondary-color);
+            color: #fff;
+        }
+
+        .payment-step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-weight: bold;
+        }
+
+        .payment-step.active .payment-step-number {
+            background: #fff;
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .payment-steps {
+                flex-direction: column;
+            }
+
+            .estate-summary-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <img src="images/Beryl GROUP-BLACK.png" alt="Beryl Group Estate Logo">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html" class="btn btn-primary">Book Inspection</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Complete Your Payment</h1>
+            <p>Secure payment process for your property purchase</p>
+        </div>
+    </section>
+
+    <!-- Payment Content -->
+    <section class="section-padding">
+        <div class="payment-container">
+            <!-- Payment Steps -->
+            <div class="payment-steps">
+                <div class="payment-step active">
+                    <div class="payment-step-number">1</div>
+                    <p>Select Property</p>
+                </div>
+                <div class="payment-step active">
+                    <div class="payment-step-number">2</div>
+                    <p>Payment Details</p>
+                </div>
+                <div class="payment-step">
+                    <div class="payment-step-number">3</div>
+                    <p>Submit Proof</p>
+                </div>
+            </div>
+
+            <!-- Estate Summary -->
+            <div class="payment-info-card" id="estate-summary-card">
+                <h2><i class="fas fa-info-circle" style="margin-right: 10px;"></i>Property Details</h2>
+                <div class="estate-summary" id="estate-summary">
+                    <div style="text-align: center; padding: 30px;">
+                        <p>Loading property details...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Details -->
+            <div class="payment-info-card">
+                <h2><i class="fas fa-university" style="margin-right: 10px;"></i>Payment Account Details</h2>
+                <div class="account-details">
+                    <h3>Please make payment to the account below:</h3>
+                    <img src="images/account.jpeg" alt="Account Details" class="account-image" id="account-image" onerror="this.style.display='none'; document.getElementById('account-error').style.display='block';">
+                    <div id="account-error" style="display: none; padding: 20px; background: #fff3cd; border-radius: 8px; margin-top: 20px;">
+                        <p style="color: #856404; margin: 0;">
+                            <i class="fas fa-exclamation-triangle" style="margin-right: 8px;"></i>
+                            Account details image could not be loaded. Please contact us for payment details.
+                        </p>
+                    </div>
+                    <p style="margin-top: 20px; color: #666;">
+                        <i class="fas fa-info-circle" style="margin-right: 8px;"></i>
+                        After making payment, please fill out the form below and upload your payment receipt.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Payment Form -->
+            <div class="payment-info-card">
+                <div class="form-container">
+                    <h3><i class="fas fa-file-invoice" style="margin-right: 10px;"></i>Submit Payment Proof</h3>
+                    <p style="text-align: center; margin-bottom: 20px; color: #666;">
+                        Please fill out the form below with your payment details and upload your payment receipt.
+                    </p>
+                    <iframe 
+                        src="https://zfrmz.com/vVQw8Fwxe9vuSrdGJHfh" 
+                        class="form-iframe"
+                        title="Payment Submission Form"
+                        id="payment-form-iframe">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Beryl Group Estate</h3>
+                    <p>Premium real estate development brand with strategically located properties across Nigeria.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Our Locations</h3>
+                    <ul class="footer-links">
+                        <li><a href="products/abeokuta.html">Abeokuta</a></li>
+                        <li><a href="products/ibadan.html">Ibadan</a></li>
+                        <li><a href="products/kurudu.html">Kurudu (Abuja)</a></li>
+                        <li><a href="products/asaba.html">Asaba</a></li>
+                        <li><a href="products/ibeju-lekki.html">Ibeju-Lekki</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> +234 800 000 0000</li>
+                        <li><i class="fas fa-envelope"></i> info@berylgroupestate.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Beryl Group Estate. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Get estate ID from URL parameter
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Format price
+        function formatPrice(price) {
+            if (!price) return 'Contact for pricing';
+            return new Intl.NumberFormat('en-NG', {
+                style: 'currency',
+                currency: 'NGN',
+                minimumFractionDigits: 0
+            }).format(parseFloat(price));
+        }
+
+        // Load estate details and populate payment page
+        document.addEventListener('DOMContentLoaded', async () => {
+            const estateId = getUrlParameter('estate');
+            const estateSummary = document.getElementById('estate-summary');
+            
+            if (!estateId) {
+                estateSummary.innerHTML = `
+                    <div style="text-align: center; padding: 30px;">
+                        <p style="color: #d32f2f;">No property selected. Please select a property first.</p>
+                        <a href="products.html" class="btn btn-primary" style="margin-top: 20px;">View Products</a>
+                    </div>
+                `;
+                return;
+            }
+
+            // Fetch estate data
+            const estate = await fetchEstateData(parseInt(estateId));
+            
+            if (!estate) {
+                estateSummary.innerHTML = `
+                    <div style="text-align: center; padding: 30px;">
+                        <p style="color: #d32f2f;">Property not found. Please try again.</p>
+                        <a href="products.html" class="btn btn-primary" style="margin-top: 20px;">View Products</a>
+                    </div>
+                `;
+                return;
+            }
+
+            // Populate estate summary
+            const title = estate.title || 'Property';
+            const location = `${estate.town_or_city || ''}, ${estate.state || ''}`.trim();
+            const price = estate.plot_detail ? formatPrice(estate.plot_detail.effective_price) : 'Contact for pricing';
+            const availablePlots = estate.plot_detail?.available_plot || 0;
+            const size = estate.size ? `${estate.size} acres` : 'N/A';
+            const installmentPlan = estate.plot_detail?.installment_plan || [];
+
+            estateSummary.innerHTML = `
+                <h3>${title}</h3>
+                <div class="estate-summary-item">
+                    <span><strong>Location:</strong></span>
+                    <span>${location || 'N/A'}</span>
+                </div>
+                <div class="estate-summary-item">
+                    <span><strong>Size:</strong></span>
+                    <span>${size}</span>
+                </div>
+                <div class="estate-summary-item">
+                    <span><strong>Available Plots:</strong></span>
+                    <span>${availablePlots}</span>
+                </div>
+                ${installmentPlan.length > 0 ? `
+                <div class="estate-summary-item">
+                    <span><strong>Payment Plan:</strong></span>
+                    <span>${installmentPlan.join(', ')}</span>
+                </div>
+                ` : ''}
+                <div class="estate-summary-item">
+                    <span><strong>Amount to Pay:</strong></span>
+                    <span>${price}</span>
+                </div>
+            `;
+
+            // Update page title
+            document.title = `Payment - ${title} | Beryl Group Estate`;
+        });
+    </script>
+</body>
+
+</html>

@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kurudu Abuja Estate | Beryl Group Estate</title>
+    <title>Ibeju-Lekki Estate | Beryl Group Estate</title>
     <meta name="description"
-        content="Invest in Kurudu, Abuja: Own close to the capital’s growth pulse. Affordable property prices and accessibility.">
+        content="Invest in Ibeju-Lekki: Lagos’ biggest future is happening here. Home to mega projects and expanding residential demand.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +34,7 @@
                 <ul class="nav-links">
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="../about.html">About Us</a></li>
-                    <li><a href="../estates.html" class="active">Estates</a></li>
+                    <li><a href="../products.html" class="active">Products</a></li>
                     <li><a href="../services.html">Services</a></li>
                     <li><a href="../contact.html">Contact</a></li>
                     <li><a href="../contact.html" class="btn btn-primary">Book Inspection</a></li>
@@ -47,11 +47,10 @@
     </header>
 
     <!-- Page Header -->
-    <section class="page-header"
-        style="background-image: linear-gradient(rgba(10, 35, 66, 0.8), rgba(10, 35, 66, 0.8)), url('../images/beryl facade.png');">
+    <section class="page-header">
         <div class="container">
-            <h1>Kurudu, Abuja</h1>
-            <p>Own Close to the Capital’s Growth Pulse</p>
+            <h1>Ibeju-Lekki, Lagos State</h1>
+            <p>Lagos’ Biggest Future Is Happening Here</p>
         </div>
     </section>
 
@@ -61,21 +60,21 @@
             <div class="about-grid">
                 <div class="about-text">
                     <h2>Overview</h2>
-                    <p>Kurudu is a fast-developing Abuja corridor with strong demand for housing and land. It provides a
-                        blend of accessibility to the city center and affordable property prices—making it a smart Abuja
-                        entry point.</p>
+                    <p>Ibeju-Lekki sits at the heart of Lagos’ new development frontier—home to mega projects,
+                        industries, and expanding residential demand. Buying here is not optional for serious
+                        investors—it’s strategic.</p>
 
                     <h3>Ideal For:</h3>
                     <ul style="list-style: disc; padding-left: 20px; margin-bottom: 20px; color: #555;">
-                        <li>Abuja workers & families</li>
-                        <li>Investors seeking steady appreciation</li>
-                        <li>Long-term residential plans</li>
+                        <li>High-growth investors</li>
+                        <li>People buying for future resale</li>
+                        <li>Buyers securing Lagos proximity</li>
                     </ul>
 
-                    <a href="../contact.html" class="btn btn-primary">Book Kurudu Inspection</a>
+                    <a href="../contact.html" class="btn btn-primary">Buy in Ibeju-Lekki Now</a>
                 </div>
                 <div class="about-img">
-                    <img src="../images/beryl facade.png" alt="Kurudu Estate">
+                    <img src="../images/IMG-20251125-WA0052.jpg" alt="Ibeju-Lekki Estate">
                 </div>
             </div>
         </div>
@@ -100,7 +99,7 @@
                     <ul class="footer-links">
                         <li><a href="../index.html">Home</a></li>
                         <li><a href="../about.html">About Us</a></li>
-                        <li><a href="../estates.html">Estates</a></li>
+                        <li><a href="../products.html">Products</a></li>
                         <li><a href="../services.html">Services</a></li>
                         <li><a href="../contact.html">Contact</a></li>
                     </ul>
@@ -130,7 +129,16 @@
         </div>
     </footer>
 
+    <script src="../js/api.js"></script>
     <script src="../js/main.js"></script>
+    <script>
+        // Load estate details on page load
+        document.addEventListener('DOMContentLoaded', async () => {
+            const estateId = 1; // Ibeju-Lekki
+            const estate = await fetchEstateData(estateId);
+            renderEstateDetails(estate);
+        });
+    </script>
 </body>
 
 </html>

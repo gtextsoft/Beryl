@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ibadan Estate | Beryl Group Estate</title>
+    <title>Our Products | Beryl Group Estate</title>
     <meta name="description"
-        content="Invest in Ibadan: A mega city with modern real estate upside. Perfect for building and rental income.">
+        content="Explore premium products in Abeokuta, Ibadan, Kurudu-Abuja, Asaba, and Ibeju-Lekki. Secure land titles and high appreciation potential.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -27,17 +27,16 @@
     <!-- Header -->
     <header>
         <div class="container navbar">
-            <a href="../index.html" class="logo">
-                <img src="../images/Beryl GROUP-BLACK.png" alt="Beryl Group Estate Logo">
+            <a href="index.html" class="logo">
+                <img src="images/Beryl GROUP-BLACK.png" alt="Beryl Group Estate Logo">
             </a>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../about.html">About Us</a></li>
-                    <li><a href="../estates.html" class="active">Estates</a></li>
-                    <li><a href="../services.html">Services</a></li>
-                    <li><a href="../contact.html">Contact</a></li>
-                    <li><a href="../contact.html" class="btn btn-primary">Book Inspection</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html" class="btn btn-primary">Book Inspection</a></li>
                 </ul>
             </nav>
             <div class="mobile-menu-btn">
@@ -47,34 +46,19 @@
     </header>
 
     <!-- Page Header -->
-    <section class="page-header"
-        style="background-image: linear-gradient(rgba(10, 35, 66, 0.8), rgba(10, 35, 66, 0.8)), url('../images/layout.png');">
+    <section class="page-header">
         <div class="container">
-            <h1>Ibadan, Oyo State</h1>
-            <p>A Mega City with Modern Real Estate Upside</p>
+            <h1>Premium Products in Nigeria's Growth Corridors</h1>
+            <p>Secure title, accessibility, and appreciation potential in every location.</p>
         </div>
     </section>
 
-    <!-- Estate Details -->
-    <section class="estate-details section-padding">
+    <!-- Products Grid -->
+    <section class="estates-section section-padding">
         <div class="container">
-            <div class="about-grid">
-                <div class="about-text">
-                    <h2>Overview</h2>
-                    <p>Ibadan combines old-city stability with new-city growth. With increasing business activity and
-                        better transport links, the city is a high-demand market for homeownership and rentals.</p>
-
-                    <h3>Ideal For:</h3>
-                    <ul style="list-style: disc; padding-left: 20px; margin-bottom: 20px; color: #555;">
-                        <li>People planning to build within 12–24 months</li>
-                        <li>Rental investors</li>
-                        <li>Professionals relocating to Ibadan</li>
-                    </ul>
-
-                    <a href="../contact.html" class="btn btn-primary">Get Ibadan Estate Brochure</a>
-                </div>
-                <div class="about-img">
-                    <img src="../images/layout.png" alt="Ibadan Estate">
+            <div class="estates-grid" id="estates-grid">
+                <div style="text-align: center; padding: 50px; width: 100%;">
+                    <p>Loading products...</p>
                 </div>
             </div>
         </div>
@@ -97,21 +81,20 @@
                 <div class="footer-col">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../about.html">About Us</a></li>
-                        <li><a href="../estates.html">Estates</a></li>
-                        <li><a href="../services.html">Services</a></li>
-                        <li><a href="../contact.html">Contact</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Our Locations</h3>
                     <ul class="footer-links">
-                        <li><a href="abeokuta.html">Abeokuta</a></li>
-                        <li><a href="ibadan.html">Ibadan</a></li>
-                        <li><a href="kurudu.html">Kurudu (Abuja)</a></li>
-                        <li><a href="asaba.html">Asaba</a></li>
-                        <li><a href="ibeju-lekki.html">Ibeju-Lekki</a></li>
+                        <li><a href="products/abeokuta.html">Abeokuta</a></li>
+                        <li><a href="products/ibadan.html">Ibadan</a></li>
+                        <li><a href="products/kurudu.html">Kurudu (Abuja)</a></li>
+                        <li><a href="products/asaba.html">Asaba</a></li>
+                        <li><a href="products/ibeju-lekki.html">Ibeju-Lekki</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -129,7 +112,27 @@
         </div>
     </footer>
 
-    <script src="../js/main.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Load all products on page load
+        document.addEventListener('DOMContentLoaded', async () => {
+            const estatesGrid = document.getElementById('estates-grid');
+            if (!estatesGrid) return;
+            
+            // Fetch all estate IDs
+            const estateIds = [13, 12, 6, 5, 1]; // Abeokuta, Ibadan, Kurudu, Asaba, Ibeju-Lekki
+            const estates = await fetchMultipleEstates(estateIds);
+            
+            if (estates.length === 0) {
+                estatesGrid.innerHTML = '<div style="text-align: center; padding: 50px;"><p>No products available at the moment.</p></div>';
+                return;
+            }
+            
+            // Render all estate cards
+            estatesGrid.innerHTML = estates.map(estate => renderEstateCard(estate, '')).join('');
+        });
+    </script>
 </body>
 
 </html>

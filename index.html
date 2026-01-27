@@ -34,8 +34,8 @@
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="estates.html">Estates</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="contact.html" class="btn btn-primary">Book Inspection</a></li>
                 </ul>
@@ -54,7 +54,7 @@
             <p>Discover premium, titled estates in Abeokuta, Ibadan, Kurudu-Abuja, Asaba, and Ibeju-Lekki. Flexible
                 payment plans. High return locations. Secure ownership.</p>
             <div class="hero-btns">
-                <a href="estates.html" class="btn btn-primary">View Available Estates</a>
+                <a href="products.html" class="btn btn-primary">View Available Products</a>
                 <a href="contact.html" class="btn btn-secondary">Book a Free Inspection</a>
             </div>
         </div>
@@ -127,9 +127,10 @@
                 <h2>Explore Our Estates Nationwide</h2>
                 <p>We don’t just sell land—we develop communities where value rises and life feels better.</p>
             </div>
-            <div class="estates-grid">
-                <!-- Estate Card 1: Abeokuta -->
-                <div class="estate-card">
+            <div class="estates-grid" id="featured-estates-grid">
+                <div style="text-align: center; padding: 50px; width: 100%;">
+                    <p>Loading featured products...</p>
+                </div>
                     <div class="estate-img">
                         <!-- Placeholder or specific image if available -->
                         <img src="images/street.png" alt="Abeokuta Estate">
@@ -138,7 +139,7 @@
                     <div class="estate-info">
                         <h3>Abeokuta, Ogun State</h3>
                         <p>Affordable entry with strong growth potential. Close to Lagos.</p>
-                        <a href="estates/abeokuta.html" class="btn btn-outline">View Details</a>
+                        <a href="products/abeokuta.html" class="btn btn-outline">View Details</a>
                     </div>
                 </div>
                 <!-- Estate Card 2: Ibadan -->
@@ -149,7 +150,7 @@
                     <div class="estate-info">
                         <h3>Ibadan, Oyo State</h3>
                         <p>A mega city with modern real estate upside. Perfect for building.</p>
-                        <a href="estates/ibadan.html" class="btn btn-outline">View Details</a>
+                        <a href="products/ibadan.html" class="btn btn-outline">View Details</a>
                     </div>
                 </div>
                 <!-- Estate Card 3: Abuja -->
@@ -160,12 +161,12 @@
                     <div class="estate-info">
                         <h3>Kurudu, Abuja</h3>
                         <p>Own close to the capital’s growth pulse. Smart investment.</p>
-                        <a href="estates/kurudu.html" class="btn btn-outline">View Details</a>
+                        <a href="products/kurudu.html" class="btn btn-outline">View Details</a>
                     </div>
                 </div>
             </div>
             <div class="center-btn">
-                <a href="estates.html" class="btn btn-primary">View All Estates</a>
+                <a href="products.html" class="btn btn-primary">View All Products</a>
             </div>
         </div>
     </section>
@@ -244,19 +245,19 @@
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="estates.html">Estates</a></li>
-                        <li><a href="services.html">Services</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Our Locations</h3>
                     <ul class="footer-links">
-                        <li><a href="estates/abeokuta.html">Abeokuta</a></li>
-                        <li><a href="estates/ibadan.html">Ibadan</a></li>
-                        <li><a href="estates/kurudu.html">Kurudu (Abuja)</a></li>
-                        <li><a href="estates/asaba.html">Asaba</a></li>
-                        <li><a href="estates/ibeju-lekki.html">Ibeju-Lekki</a></li>
+                        <li><a href="products/abeokuta.html">Abeokuta</a></li>
+                        <li><a href="products/ibadan.html">Ibadan</a></li>
+                        <li><a href="products/kurudu.html">Kurudu (Abuja)</a></li>
+                        <li><a href="products/asaba.html">Asaba</a></li>
+                        <li><a href="products/ibeju-lekki.html">Ibeju-Lekki</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -274,7 +275,27 @@
         </div>
     </footer>
 
+    <script src="js/api.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        // Load featured products on page load
+        document.addEventListener('DOMContentLoaded', async () => {
+            const featuredGrid = document.getElementById('featured-estates-grid');
+            if (!featuredGrid) return;
+            
+            // Fetch first 3 estates for featured section
+            const estateIds = [13, 12, 6]; // Abeokuta, Ibadan, Kurudu
+            const estates = await fetchMultipleEstates(estateIds);
+            
+            if (estates.length === 0) {
+                featuredGrid.innerHTML = '<div style="text-align: center; padding: 50px;"><p>No featured products available.</p></div>';
+                return;
+            }
+            
+            // Render featured estate cards
+            featuredGrid.innerHTML = estates.map(estate => renderEstateCard(estate, '')).join('');
+        });
+    </script>
 </body>
 
 </html>

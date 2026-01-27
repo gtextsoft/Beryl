@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abeokuta Estate | Beryl Group Estate</title>
+    <title>Ibadan Estate | Beryl Group Estate</title>
     <meta name="description"
-        content="Invest in Abeokuta: Affordable entry, strong growth potential, and proximity to Lagos. Secure your plot today.">
+        content="Invest in Ibadan: A mega city with modern real estate upside. Perfect for building and rental income.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +34,7 @@
                 <ul class="nav-links">
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="../about.html">About Us</a></li>
-                    <li><a href="../estates.html" class="active">Estates</a></li>
+                    <li><a href="../products.html" class="active">Products</a></li>
                     <li><a href="../services.html">Services</a></li>
                     <li><a href="../contact.html">Contact</a></li>
                     <li><a href="../contact.html" class="btn btn-primary">Book Inspection</a></li>
@@ -47,11 +47,10 @@
     </header>
 
     <!-- Page Header -->
-    <section class="page-header"
-        style="background-image: linear-gradient(rgba(10, 35, 66, 0.8), rgba(10, 35, 66, 0.8)), url('../images/street.png');">
+    <section class="page-header">
         <div class="container">
-            <h1>Abeokuta, Ogun State</h1>
-            <p>Affordable Entry, Strong Growth</p>
+            <h1>Loading...</h1>
+            <p>Please wait</p>
         </div>
     </section>
 
@@ -60,35 +59,14 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-text">
-                    <h2>Overview</h2>
-                    <p>Abeokuta is quickly emerging as a residential and industrial hub, supported by proximity to Lagos
-                        and expanding state infrastructure. Buying in Abeokuta today gives you early access to value
-                        growth at a lower cost.</p>
-
-                    <h3>Ideal For:</h3>
-                    <ul style="list-style: disc; padding-left: 20px; margin-bottom: 20px; color: #555;">
-                        <li>First-time landowners</li>
-                        <li>Families seeking calm, accessible living</li>
-                        <li>Investors targeting mid-term appreciation</li>
-                    </ul>
-
-                    <h3>Key Benefits:</h3>
-                    <ul style="list-style: none; margin-bottom: 30px;">
-                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle"
-                                style="color: var(--secondary-color); margin-right: 10px;"></i> Peaceful environment
-                        </li>
-                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle"
-                                style="color: var(--secondary-color); margin-right: 10px;"></i> Rising demand from Lagos
-                            spillover</li>
-                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle"
-                                style="color: var(--secondary-color); margin-right: 10px;"></i> Easy access to major
-                            roads and city centers</li>
-                    </ul>
-
-                    <a href="../contact.html" class="btn btn-primary">Schedule Abeokuta Inspection</a>
+                    <div style="text-align: center; padding: 50px;">
+                        <p>Loading estate details...</p>
+                    </div>
                 </div>
                 <div class="about-img">
-                    <img src="../images/street.png" alt="Abeokuta Estate">
+                    <div style="text-align: center; padding: 50px;">
+                        <p>Loading images...</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -113,7 +91,7 @@
                     <ul class="footer-links">
                         <li><a href="../index.html">Home</a></li>
                         <li><a href="../about.html">About Us</a></li>
-                        <li><a href="../estates.html">Estates</a></li>
+                        <li><a href="../products.html">Products</a></li>
                         <li><a href="../services.html">Services</a></li>
                         <li><a href="../contact.html">Contact</a></li>
                     </ul>
@@ -143,7 +121,16 @@
         </div>
     </footer>
 
+    <script src="../js/api.js"></script>
     <script src="../js/main.js"></script>
+    <script>
+        // Load estate details on page load
+        document.addEventListener('DOMContentLoaded', async () => {
+            const estateId = 12; // Ibadan
+            const estate = await fetchEstateData(estateId);
+            renderEstateDetails(estate);
+        });
+    </script>
 </body>
 
 </html>

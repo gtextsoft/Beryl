@@ -34,7 +34,7 @@
                 <ul class="nav-links">
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="../about.html">About Us</a></li>
-                    <li><a href="../estates.html" class="active">Estates</a></li>
+                    <li><a href="../products.html" class="active">Products</a></li>
                     <li><a href="../services.html">Services</a></li>
                     <li><a href="../contact.html">Contact</a></li>
                     <li><a href="../contact.html" class="btn btn-primary">Book Inspection</a></li>
@@ -47,11 +47,10 @@
     </header>
 
     <!-- Page Header -->
-    <section class="page-header"
-        style="background-image: linear-gradient(rgba(10, 35, 66, 0.8), rgba(10, 35, 66, 0.8)), url('../images/IMG-20251126-WA0007.jpg');">
+    <section class="page-header">
         <div class="container">
-            <h1>Asaba, Delta State</h1>
-            <p>The New Lifestyle & Investment Destination</p>
+            <h1>Loading...</h1>
+            <p>Please wait</p>
         </div>
     </section>
 
@@ -100,7 +99,7 @@
                     <ul class="footer-links">
                         <li><a href="../index.html">Home</a></li>
                         <li><a href="../about.html">About Us</a></li>
-                        <li><a href="../estates.html">Estates</a></li>
+                        <li><a href="../products.html">Products</a></li>
                         <li><a href="../services.html">Services</a></li>
                         <li><a href="../contact.html">Contact</a></li>
                     </ul>
@@ -130,7 +129,16 @@
         </div>
     </footer>
 
+    <script src="../js/api.js"></script>
     <script src="../js/main.js"></script>
+    <script>
+        // Load estate details on page load
+        document.addEventListener('DOMContentLoaded', async () => {
+            const estateId = 5; // Asaba
+            const estate = await fetchEstateData(estateId);
+            renderEstateDetails(estate);
+        });
+    </script>
 </body>
 
 </html>
