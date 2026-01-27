@@ -91,7 +91,7 @@ function renderEstateCard(estate, linkPath = '') {
 function renderEstateDetails(estate) {
     if (!estate) {
         const pathPrefix = window.location.pathname.includes('/products/') ? '../' : '';
-        document.body.innerHTML = `<div class="container" style="padding: 50px; text-align: center;"><h2>Estate not found</h2><p><a href="${pathPrefix}products.html">Back to Products</a></p></div>`;
+        document.body.innerHTML = `<div class="container" style="padding: 50px; text-align: center;"><h2>Estate not found</h2><p><a href="${pathPrefix}product/">Back to Products</a></p></div>`;
         return;
     }
     
