@@ -163,7 +163,7 @@ function renderEstateDetails(estate) {
                         ` : ''}
                         
                         <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 30px;">
-                            <a href="${pathPrefix}payment.html?estate=${estate.id}" class="btn btn-primary" style="flex: 1; min-width: 200px; text-align: center;">
+                            <a href="https://promolaunchfrontend.vercel.app/" class="btn btn-primary" style="flex: 1; min-width: 200px; text-align: center;">
                                 <i class="fas fa-shopping-cart" style="margin-right: 8px;"></i>Buy Now
                             </a>
                             <a href="${pathPrefix}contact.html" class="btn btn-outline" style="flex: 1; min-width: 200px; text-align: center;">
