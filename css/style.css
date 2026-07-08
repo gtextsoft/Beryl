@@ -142,9 +142,15 @@ header {
 
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     height: 80px;
+    position: relative;
+}
+
+.logo {
+    flex-shrink: 0;
+    z-index: 2;
 }
 
 .logo img {
@@ -152,9 +158,30 @@ header {
     /* Adjust based on actual logo aspect ratio */
 }
 
+.header-nav {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.navbar nav {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .nav-links {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 30px;
+}
+
+.nav-links li {
+    display: flex;
+    align-items: center;
 }
 
 .nav-links a {
@@ -168,11 +195,25 @@ header {
     color: var(--secondary-color);
 }
 
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 2;
+}
+
+.nav-actions .btn {
+    font-size: 0.85rem;
+    padding: 10px 16px;
+    white-space: nowrap;
+}
+
 .mobile-menu-btn {
     display: none;
     font-size: 1.5rem;
     color: var(--primary-color);
     cursor: pointer;
+    z-index: 2;
 }
 
 /* Footer */
@@ -223,22 +264,49 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .nav-links {
+    .header-nav {
         position: absolute;
         top: 80px;
         left: 0;
         width: 100%;
-        background-color: #fff;
         flex-direction: column;
         align-items: center;
+        background-color: #fff;
         padding: 20px 0;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         transform: translateY(-150%);
         transition: var(--transition);
     }
 
-    .nav-links.active {
+    .header-nav.active {
         transform: translateY(0);
+    }
+
+    .navbar nav {
+        position: static;
+        transform: none;
+        width: 100%;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .nav-actions {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 15px;
+        gap: 15px;
+    }
+
+    .nav-actions .btn {
+        white-space: normal;
+        max-width: 280px;
+        width: 100%;
+        text-align: center;
     }
 
     .mobile-menu-btn {
