@@ -12,5 +12,11 @@
       "destination": "https://gtextcareer.vercel.app/",
       "permanent": false
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/subscription",
+      "destination": "/subscription.html"
+    }
   ]
 }
